@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EnviaTrack CO | Rastreo de paquetes y guías en Colombia</title>
+  
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W922N2G2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
+
   <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts: Montserrat para títulos (impacto) e Inter para textos (legibilidad) -->
@@ -337,9 +347,8 @@
       border: 1px solid #E6F0FF;
     }
 
-    /* Adorno de fondo para darle un toque premium */
     .ceo-section::before {
-      content: '\f0c0'; /* Icono de usuarios */
+      content: '\f0c0';
       font-family: 'Font Awesome 6 Free';
       font-weight: 900;
       position: absolute;
@@ -373,7 +382,6 @@
       position: relative;
     }
 
-    /* Insignia de verificado */
     .verified-badge {
       position: absolute;
       bottom: 10px;
@@ -617,6 +625,11 @@
 </head>
 <body>
 
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W922N2G2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- Header -->
   <header class="header">
     <div class="container header-content">
@@ -739,6 +752,13 @@
       
       const guia = document.getElementById('guia').value.trim();
       const telefono = "573103743758"; 
+      
+      // Enviar evento a Google Tag Manager (opcional pero recomendado para medir conversiones)
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'click_whatsapp',
+        'guia_rastreo': guia
+      });
       
       const mensaje = `Hola, vengo de la página web y necesito rastrear mi paquete. Mi número de guía es: *${guia}*`;
       const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
