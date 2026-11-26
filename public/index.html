@@ -3,559 +3,540 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RastreoPro | Rastreo de paquetes y guías en Colombia</title>
+  <title>EnviaTrack CO | Rastreo de paquetes y guías en Colombia</title>
   <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Montserrat para títulos (impacto) e Inter para textos (legibilidad) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --primary: #0047AB; /* Azul Cobalto Profundo */
+      --primary-light: #1a7fe6;
+      --secondary: #25D366; /* Verde WhatsApp */
+      --secondary-hover: #1eb855;
+      --accent: #FFB800; /* Amarillo/Dorado para resaltar */
+      --dark: #0A192F; /* Azul muy oscuro para textos y fondos */
+      --text: #4A5568;
+      --bg: #F8FAFC;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     body {
-      background: #f8fafc;
-      color: #0b1e2e;
-      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Contenedor principal */
+    h1, h2, h3, .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+    }
+
     .container {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* Header */
+    /* --- HEADER --- */
     .header {
-      background: #ffffff;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      z-index: 100;
-      backdrop-filter: blur(8px);
-      background: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     }
 
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      padding: 16px 0;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 700;
-      font-size: 1.6rem;
-      letter-spacing: -0.02em;
-      color: #0b2b4a;
+      text-decoration: none;
     }
 
-    .logo i {
-      color: #1a7fe6;
-      font-size: 2rem;
+    .logo-icon {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0, 71, 171, 0.3);
     }
 
-    .logo span {
-      color: #1a7fe6;
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text span {
+      color: var(--primary);
     }
 
     .badge-colombia {
-      background: #f0f7ff;
-      border-radius: 100px;
-      padding: 6px 14px;
-      font-size: 0.8rem;
+      background: #E6F0FF;
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
       font-weight: 600;
-      color: #1a7fe6;
       display: flex;
       align-items: center;
       gap: 6px;
-      border: 1px solid rgba(26, 127, 230, 0.2);
+      border: 1px solid #CCE0FF;
     }
 
-    .badge-colombia i {
-      font-size: 0.8rem;
-    }
-
-    /* Hero */
+    /* --- HERO SECTION --- */
     .hero {
-      padding: 60px 0 40px;
+      padding: 80px 0 60px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 40px;
+      gap: 60px;
+      position: relative;
+    }
+
+    /* Fondo decorativo */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(26,127,230,0.08) 0%, rgba(255,255,255,0) 70%);
+      z-index: -1;
+      border-radius: 50%;
     }
 
     .hero-content {
       flex: 1 1 500px;
     }
 
-    .hero-badge {
-      display: inline-block;
-      background: #e8f2fe;
-      color: #1a7fe6;
-      font-weight: 600;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFF4E5;
+      color: #B37400;
+      font-weight: 700;
       font-size: 0.85rem;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-      letter-spacing: 0.3px;
-      border: 1px solid #cde2fc;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      border: 1px solid #FFE0B2;
+    }
+
+    .hero-tag i {
+      color: var(--accent);
     }
 
     .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
+      font-size: 3.5rem;
+      font-weight: 900;
       line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: #0b1e2e;
-      margin-bottom: 20px;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
     }
 
     .hero h1 span {
-      color: #1a7fe6;
+      color: var(--primary);
       position: relative;
-      display: inline-block;
+    }
+
+    /* Subrayado decorativo para el H1 */
+    .hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 184, 0, 0.3);
+      z-index: -1;
+      border-radius: 6px;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #3f5468;
-      margin-bottom: 32px;
-      max-width: 540px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
+      font-size: 1.15rem;
+      color: #556987;
+      margin-bottom: 40px;
+      max-width: 500px;
     }
 
     .btn-primary {
-      background: #1a7fe6;
+      background: var(--primary);
       color: white;
-      border: none;
-      border-radius: 60px;
-      padding: 14px 32px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 8px 20px -6px rgba(26, 127, 230, 0.4);
+      padding: 18px 36px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
       text-decoration: none;
-    }
-
-    .btn-primary i {
-      font-size: 1.2rem;
-    }
-
-    .btn-primary:hover {
-      background: #0d62b8;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px -8px rgba(26, 127, 230, 0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid #d0dfed;
-      color: #1f3a56;
-      padding: 14px 28px;
-      border-radius: 60px;
-      font-weight: 500;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px -5px rgba(0, 71, 171, 0.4);
     }
 
-    .btn-outline i {
-      color: #1a7fe6;
+    .btn-primary:hover {
+      background: #003885;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -5px rgba(0, 71, 171, 0.5);
     }
 
-    .btn-outline:hover {
-      background: #f0f7ff;
-      border-color: #1a7fe6;
-    }
-
-    .hero-visual {
-      flex: 1 1 400px;
-      background: linear-gradient(145deg, #ffffff, #f3f9ff);
-      border-radius: 40px;
-      padding: 28px;
-      box-shadow: 0 30px 50px -20px rgba(0, 30, 60, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      position: relative;
-    }
-
+    /* --- TARJETA DE RASTREO (GLASSMORPHISM) --- */
     .tracking-card {
-      background: white;
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      flex: 1 1 400px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 45px;
+      box-shadow: 0 30px 60px -15px rgba(10, 25, 47, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Adorno superior de la tarjeta */
+    .tracking-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      border-radius: 0 0 4px 4px;
     }
 
     .tracking-header {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      font-weight: 600;
-      color: #0b1e2e;
-      font-size: 1.1rem;
+      gap: 15px;
+      margin-bottom: 10px;
     }
 
-    .tracking-header i {
-      color: #1a7fe6;
-      background: #e8f2fe;
-      padding: 8px;
-      border-radius: 10px;
+    .tracking-icon {
+      background: #E6F0FF;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .tracking-header h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .tracking-desc {
+      font-size: 0.95rem;
+      color: #64748B;
+      margin-bottom: 30px;
+      padding-left: 65px; /* Alineado con el texto del header */
     }
 
     .input-group {
       display: flex;
+      flex-direction: column;
       gap: 8px;
-      margin-bottom: 24px;
+    }
+
+    .input-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .input-group input {
-      flex: 1;
-      padding: 14px 18px;
-      border-radius: 60px;
-      border: 1.5px solid #e2eaf2;
-      font-size: 0.95rem;
-      outline: none;
-      transition: 0.15s;
-      background: #fbfdff;
+      width: 100%;
+      padding: 18px 20px;
+      border-radius: 16px;
+      border: 2px solid #E2E8F0;
+      font-size: 1.05rem;
+      font-family: 'Inter', sans-serif;
+      transition: 0.2s;
+      background: #F8FAFC;
+      font-weight: 500;
     }
 
     .input-group input:focus {
-      border-color: #1a7fe6;
-      box-shadow: 0 0 0 4px rgba(26, 127, 230, 0.1);
+      border-color: var(--primary);
       background: white;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(0, 71, 171, 0.1);
     }
 
-    .input-group button {
-      background: #1a7fe6;
+    .btn-wsp {
+      background: var(--secondary);
+      color: white;
       border: none;
-      width: 54px;
-      border-radius: 60px;
-      color: white;
-      font-size: 1.2rem;
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
       cursor: pointer;
-      transition: 0.15s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .input-group button:hover {
-      background: #0d62b8;
-    }
-
-    .progress-steps {
-      display: flex;
-      justify-content: space-between;
+      transition: all 0.3s;
+      box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
       margin-top: 10px;
-      position: relative;
     }
 
-    .progress-steps::before {
-      content: '';
-      position: absolute;
-      top: 14px;
-      left: 20px;
-      right: 20px;
-      height: 3px;
-      background: #e2eaf2;
-      z-index: 1;
+    .btn-wsp:hover {
+      background: var(--secondary-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px -5px rgba(37, 211, 102, 0.5);
     }
 
-    .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      z-index: 2;
-      flex: 1;
+    .btn-wsp i {
+      font-size: 1.5rem;
     }
 
-    .step-icon {
-      width: 32px;
-      height: 32px;
-      background: #e2eaf2;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: #5e7a94;
-      font-weight: 600;
-    }
-
-    .step.completed .step-icon {
-      background: #1a7fe6;
-      color: white;
-    }
-
-    .step span {
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: #5e7a94;
-    }
-
-    .step.completed span {
-      color: #1a7fe6;
-      font-weight: 600;
-    }
-
-    /* Sección CEO */
+    /* --- SECCIÓN CEO --- */
     .ceo-section {
       background: white;
-      border-radius: 48px;
-      padding: 40px;
-      margin: 50px 0;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.04);
-      border: 1px solid #f0f5fb;
+      border-radius: 30px;
+      padding: 40px 50px;
+      margin: 40px 0;
+      box-shadow: 0 15px 40px -10px rgba(0,0,0,0.05);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 40px;
+      border-left: 8px solid var(--primary);
     }
 
     .ceo-avatar {
-      flex-shrink: 0;
-      width: 150px;
-      height: 150px;
-      background: linear-gradient(135deg, #1a7fe6, #5aa9f5);
-      border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(135deg, #E6F0FF, #CCE0FF);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 4rem;
-      font-weight: 600;
-      color: white;
-      box-shadow: 0 20px 30px -10px rgba(26, 127, 230, 0.4);
+      font-size: 3rem;
+      color: var(--primary);
+      border: 3px solid white;
+      box-shadow: 0 10px 20px rgba(0, 71, 171, 0.15);
     }
 
     .ceo-info h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #0b1e2e;
-      margin-bottom: 8px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 5px;
     }
 
-    .ceo-info .cedula {
+    .ceo-cedula {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: #f0f7ff;
-      padding: 10px 22px;
-      border-radius: 100px;
-      color: #1a7fe6;
+      gap: 8px;
+      background: #F1F5F9;
+      padding: 6px 14px;
+      border-radius: 8px;
+      color: #475569;
       font-weight: 600;
-      margin: 12px 0 18px;
-      border: 1px solid #cde2fc;
-    }
-
-    .ceo-info .cedula i {
-      font-size: 1rem;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
     }
 
     .ceo-quote {
-      font-size: 1.1rem;
-      color: #3f5468;
-      max-width: 600px;
+      font-size: 1.05rem;
       font-style: italic;
-      border-left: 4px solid #1a7fe6;
-      padding-left: 24px;
+      color: #556987;
+      max-width: 700px;
     }
 
-    /* Características */
+    /* --- CARACTERÍSTICAS --- */
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin: 60px 0;
     }
 
     .feature-card {
       background: white;
-      padding: 32px 28px;
-      border-radius: 28px;
-      transition: 0.2s;
-      border: 1px solid #f0f5fb;
-      box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.02);
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03);
+      transition: 0.3s;
+      border: 1px solid #F1F5F9;
+      text-align: center;
     }
 
     .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
-      border-color: #d9e8fc;
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -10px rgba(0, 71, 171, 0.08);
+      border-color: #CCE0FF;
     }
 
     .feature-icon {
-      background: #e8f2fe;
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
+      background: #E6F0FF;
+      color: var(--primary);
       border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      color: #1a7fe6;
-      margin-bottom: 24px;
+      font-size: 2rem;
+      margin: 0 auto 20px;
     }
 
     .feature-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #0b1e2e;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 12px;
     }
 
     .feature-card p {
-      color: #5e7a94;
       font-size: 0.95rem;
+      color: #64748B;
     }
 
-    /* CTA WhatsApp */
-    .cta-wsp {
-      background: linear-gradient(120deg, #0a1e2e, #0d2e4a);
-      border-radius: 48px;
-      padding: 56px 48px;
-      margin: 60px 0 40px;
+    /* --- CTA BANNER FINAL --- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--dark) 0%, #112A4A 100%);
+      border-radius: 30px;
+      padding: 60px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      flex-wrap: wrap;
+      gap: 40px;
       color: white;
-      box-shadow: 0 30px 50px -15px rgba(0, 30, 60, 0.4);
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -10px rgba(10, 25, 47, 0.4);
     }
 
-    .cta-wsp h2 {
+    /* Adorno de fondo del banner */
+    .cta-banner::after {
+      content: '\f0d1'; /* Icono de camión de FontAwesome */
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: -20px;
+      bottom: -40px;
+      font-size: 15rem;
+      color: rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      color: white;
       font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+      font-weight: 900;
+      margin-bottom: 10px;
     }
 
-    .cta-wsp p {
-      color: #b8d0e8;
-      font-size: 1.05rem;
-      margin-top: 8px;
+    .cta-banner p {
+      color: #94A3B8;
+      font-size: 1.1rem;
       max-width: 500px;
     }
 
-    .btn-wsp {
-      background: #25D366;
-      color: #0b1e2e;
-      border: none;
-      border-radius: 60px;
-      padding: 18px 42px;
+    .btn-wsp-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid var(--secondary);
+      padding: 16px 36px;
+      border-radius: 50px;
       font-weight: 700;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 14px;
-      cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0 12px 30px -8px rgba(37, 211, 102, 0.6);
-      text-decoration: none;
-      white-space: nowrap;
+      gap: 12px;
+      transition: all 0.3s;
+      z-index: 1;
     }
 
-    .btn-wsp i {
-      font-size: 1.6rem;
+    .btn-wsp-outline:hover {
+      background: var(--secondary);
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
     }
 
-    .btn-wsp:hover {
-      background: #1eb855;
-      transform: scale(1.02);
-      box-shadow: 0 18px 36px -8px rgba(37, 211, 102, 0.8);
-    }
-
-    /* Footer */
+    /* --- FOOTER --- */
     .footer {
-      padding: 32px 0 24px;
-      border-top: 1px solid #e2eaf2;
-      color: #5e7a94;
-      font-size: 0.9rem;
+      padding: 30px 0;
+      border-top: 1px solid #E2E8F0;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px;
+      font-size: 0.9rem;
+      color: #64748B;
     }
 
     .footer strong {
-      color: #0b1e2e;
+      color: var(--dark);
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .ceo-section {
-        padding: 30px;
-      }
-      .cta-wsp {
-        padding: 40px 28px;
-      }
-      .cta-wsp h2 {
-        font-size: 1.8rem;
-      }
+    /* --- RESPONSIVE --- */
+    @media (max-width: 968px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero { padding: 50px 0 40px; }
+      .cta-banner { padding: 40px; }
     }
 
     @media (max-width: 600px) {
-      .hero {
-        padding: 30px 0 20px;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .header-content {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .ceo-avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 2.5rem;
-      }
-      .ceo-info h2 {
-        font-size: 1.7rem;
-      }
-      .btn-wsp {
-        padding: 14px 28px;
-        font-size: 1rem;
-      }
-      .progress-steps .step span {
-        font-size: 0.6rem;
-      }
+      .hero h1 { font-size: 2.2rem; }
+      .tracking-card { padding: 30px 20px; }
+      .tracking-desc { padding-left: 0; }
+      .ceo-section { padding: 30px; text-align: center; justify-content: center; }
+      .ceo-quote { border: none; padding: 0; margin-top: 15px; }
+      .cta-banner { padding: 30px; text-align: center; justify-content: center; }
+      .btn-wsp-outline { width: 100%; justify-content: center; }
     }
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header class="header">
     <div class="container header-content">
-      <div class="logo">
-        <i class="fas fa-box-open"></i>
-        <div>Rastreo<span>Pro</span></div>
-      </div>
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fas fa-cube"></i></div>
+        <div class="logo-text">Envia<span>Track</span> CO</div>
+      </a>
       <div class="badge-colombia">
-        <i class="fas fa-map-pin"></i> Colombia
+        <i class="fas fa-map-marker-alt"></i> Cobertura Nacional
       </div>
     </div>
   </header>
@@ -563,54 +544,35 @@
   <!-- Hero -->
   <section class="container hero">
     <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fas fa-bolt"></i> Rastreo inteligente en tiempo real
+      <div class="hero-tag">
+        <i class="fas fa-star"></i> La plataforma #1 en Colombia
       </div>
       <h1>
-        Rastrea tus paquetes <br>y guías en <span>Colombia</span> <br>sin complicaciones
+        Rastrea tus paquetes <br>y guías en <span>Colombia</span> <br>en tiempo real
       </h1>
       <p>
-        La plataforma más confiable para seguir el estado de tus envíos. 
-        Recibe actualizaciones precisas y contacta a nuestro equipo por WhatsApp 
-        para una atención personalizada.
+        No pierdas más tiempo buscando. Ingresa tu número de guía y nuestro equipo de soporte te atenderá al instante por WhatsApp para darte el estado exacto de tu envío.
       </p>
-      <div class="hero-actions">
-        <a href="https://wa.me/573001234567?text=Hola,%20necesito%20ayuda%20con%20el%20rastreo%20de%20mi%20paquete" target="_blank" class="btn-primary">
-          <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-        </a>
-        <a href="#" class="btn-outline">
-          <i class="fas fa-arrow-right"></i> Ver guías
-        </a>
-      </div>
+      <a href="#rastrear" class="btn-primary">
+        <i class="fas fa-search"></i> Rastrear mi paquete
+      </a>
     </div>
-    <div class="hero-visual">
-      <div class="tracking-card">
-        <div class="tracking-header">
-          <i class="fas fa-truck-fast"></i> Rastreo de guía #CO-2025-1842
-        </div>
-        <div class="input-group">
-          <input type="text" placeholder="Ingresa tu número de guía" value="CO-2025-1842">
-          <button aria-label="Buscar"><i class="fas fa-search"></i></button>
-        </div>
-        <div class="progress-steps">
-          <div class="step completed">
-            <div class="step-icon"><i class="fas fa-check"></i></div>
-            <span>Recibido</span>
-          </div>
-          <div class="step completed">
-            <div class="step-icon"><i class="fas fa-check"></i></div>
-            <span>En ruta</span>
-          </div>
-          <div class="step completed">
-            <div class="step-icon"><i class="fas fa-check"></i></div>
-            <span>Reparto</span>
-          </div>
-          <div class="step">
-            <div class="step-icon">4</div>
-            <span>Entregado</span>
-          </div>
-        </div>
+
+    <!-- Tarjeta de Rastreo Interactiva -->
+    <div class="tracking-card" id="rastrear">
+      <div class="tracking-header">
+        <div class="tracking-icon"><i class="fas fa-truck-fast"></i></div>
+        <h3>Rastreo Express</h3>
       </div>
+      <p class="tracking-desc">Ingresa tu guía y consulta directamente con un asesor.</p>
+      
+      <form id="tracking-form" class="input-group">
+        <label for="guia">Número de guía</label>
+        <input type="text" id="guia" placeholder="Ej: CO-2025-1842" required>
+        <button type="submit" class="btn-wsp">
+          <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+        </button>
+      </form>
     </div>
   </section>
 
@@ -622,13 +584,11 @@
       </div>
       <div class="ceo-info">
         <h2>Marielvis Andrea Wilches Julio</h2>
-        <div class="cedula">
-          <i class="fas fa-id-card"></i> C.C. 1101464060
+        <div class="ceo-cedula">
+          <i class="fas fa-id-badge"></i> C.C. 1101464060
         </div>
         <p class="ceo-quote">
-          "En RastreoPro nos apasiona conectar a Colombia con sus envíos. 
-          Cada paquete cuenta una historia y trabajamos para que llegue a su destino 
-          con total transparencia y eficiencia."
+          "En EnviaTrack CO nos apasiona conectar a Colombia con sus envíos. Cada paquete cuenta una historia y trabajamos para que llegue a su destino con total transparencia, seguridad y eficiencia."
         </p>
       </div>
     </div>
@@ -638,30 +598,30 @@
   <div class="container features">
     <div class="feature-card">
       <div class="feature-icon"><i class="fas fa-location-dot"></i></div>
-      <h3>Rastreo preciso</h3>
-      <p>Ubicación en tiempo real de tus paquetes en todo el territorio colombiano.</p>
+      <h3>Rastreo Preciso</h3>
+      <p>Ubicación exacta de tus paquetes en todo el territorio colombiano, sin intermediarios.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
-      <h3>Seguridad garantizada</h3>
-      <p>Tu información y tus envíos están protegidos con los más altos estándares.</p>
+      <h3>Seguridad Total</h3>
+      <p>Tu información y tus envíos están protegidos con los más altos estándares de privacidad.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon"><i class="fas fa-headset"></i></div>
-      <h3>Soporte 24/7</h3>
-      <p>Atención personalizada vía WhatsApp para resolver todas tus dudas.</p>
+      <h3>Soporte Humano 24/7</h3>
+      <p>Olvídate de los bots. Te atendemos por WhatsApp con personas reales listas para ayudarte.</p>
     </div>
   </div>
 
-  <!-- CTA WhatsApp -->
+  <!-- CTA Banner -->
   <div class="container">
-    <div class="cta-wsp">
+    <div class="cta-banner">
       <div>
-        <h2>¿Necesitas ayuda con tu guía?</h2>
-        <p>Escríbenos directamente por WhatsApp y un asesor te atenderá de inmediato.</p>
+        <h2>¿Tienes dudas con tu envío?</h2>
+        <p>Escríbenos ahora mismo. Nuestro equipo está en línea para ayudarte a resolver cualquier inconveniente con tu guía.</p>
       </div>
-      <a href="https://wa.me/573001234567?text=Hola,%20quiero%20rastrear%20mi%20paquete%20y%20necesito%20asistencia" target="_blank" class="btn-wsp">
-        <i class="fab fa-whatsapp"></i> Chatear ahora
+      <a href="https://wa.me/573103743758?text=Hola,%20necesito%20asistencia%20con%20el%20rastreo%20de%20mi%20paquete" target="_blank" class="btn-wsp-outline">
+        <i class="fab fa-whatsapp"></i> Contactar Asesor
       </a>
     </div>
   </div>
@@ -669,11 +629,26 @@
   <!-- Footer -->
   <div class="container footer">
     <div>
-      <strong>RastreoPro</strong> — Rastreo de paquetes y guías en Colombia
+      <strong>EnviaTrack CO</strong> &copy; 2026. Todos los derechos reservados.
     </div>
     <div>
-      <i class="fas fa-user-tie"></i> CEO: Marielvis Andrea Wilches Julio — C.C. 1101464060
+      CEO: Marielvis Andrea Wilches Julio — C.C. 1101464060
     </div>
   </div>
+
+  <!-- Script para enviar la guía a WhatsApp -->
+  <script>
+    document.getElementById('tracking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const guia = document.getElementById('guia').value.trim();
+      const telefono = "573103743758"; // Número actualizado
+      
+      const mensaje = `Hola, vengo de la página web y necesito rastrear mi paquete. Mi número de guía es: *${guia}*`;
+      const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+      
+      window.open(url, '_blank');
+    });
+  </script>
 </body>
 </html>
