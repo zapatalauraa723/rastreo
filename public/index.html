@@ -5,14 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EnviaTrack CO | Rastreo de paquetes y guías en Colombia</title>
   
-  <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W922N2G2"></script>
+  <!-- 1. Google Tag (gtag.js) Base (Requerido para que la conversión funcione) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18359227354"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('config', 'AW-18359227354');
   </script>
-  <!-- End Google Tag Manager -->
+
+  <!-- 2. Google Tag Manager (GTM) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W922N2G2"></script>
+
+  <!-- 3. Event Snippet for Vista de página conversion page -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18359227354/MSjtCPCt7NgcENqnrrJE',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 
   <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -729,6 +748,7 @@
         <h2>¿Tienes dudas con tu envío?</h2>
         <p>Escríbenos ahora mismo. Nuestro equipo está en línea para ayudarte a resolver cualquier inconveniente con tu guía.</p>
       </div>
+      <!-- NOTA: Si quieres medir también este botón, puedes cambiar el href por onclick="return gtag_report_conversion('https://wa.me/...');" -->
       <a href="https://wa.me/573103743758?text=Hola,%20necesito%20asistencia%20con%20el%20rastreo%20de%20mi%20paquete" target="_blank" class="btn-wsp-outline">
         <i class="fab fa-whatsapp"></i> Contactar Asesor
       </a>
@@ -745,7 +765,7 @@
     </div>
   </div>
 
-  <!-- Script para enviar la guía a WhatsApp -->
+  <!-- Script Modificado para medir la conversión y abrir WhatsApp -->
   <script>
     document.getElementById('tracking-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -753,17 +773,13 @@
       const guia = document.getElementById('guia').value.trim();
       const telefono = "573103743758"; 
       
-      // Enviar evento a Google Tag Manager (opcional pero recomendado para medir conversiones)
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        'event': 'click_whatsapp',
-        'guia_rastreo': guia
-      });
-      
+      // 1. Preparamos el mensaje y la URL de WhatsApp
       const mensaje = `Hola, vengo de la página web y necesito rastrear mi paquete. Mi número de guía es: *${guia}*`;
       const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
       
-      window.open(url, '_blank');
+      // 2. Ejecutamos la función de conversión de Google Ads
+      // Al pasarle la URL como parámetro, la función abrirá WhatsApp justo después de registrar la conversión
+      gtag_report_conversion(url);
     });
   </script>
 </body>
