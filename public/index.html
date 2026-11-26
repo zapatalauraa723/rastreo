@@ -116,7 +116,6 @@
       position: relative;
     }
 
-    /* Fondo decorativo */
     .hero::before {
       content: '';
       position: absolute;
@@ -164,7 +163,6 @@
       position: relative;
     }
 
-    /* Subrayado decorativo para el H1 */
     .hero h1 span::after {
       content: '';
       position: absolute;
@@ -205,7 +203,7 @@
       box-shadow: 0 15px 30px -5px rgba(0, 71, 171, 0.5);
     }
 
-    /* --- TARJETA DE RASTREO (GLASSMORPHISM) --- */
+    /* --- TARJETA DE RASTREO --- */
     .tracking-card {
       flex: 1 1 400px;
       background: rgba(255, 255, 255, 0.9);
@@ -218,7 +216,6 @@
       z-index: 1;
     }
 
-    /* Adorno superior de la tarjeta */
     .tracking-card::before {
       content: '';
       position: absolute;
@@ -259,7 +256,7 @@
       font-size: 0.95rem;
       color: #64748B;
       margin-bottom: 30px;
-      padding-left: 65px; /* Alineado con el texto del header */
+      padding-left: 65px;
     }
 
     .input-group {
@@ -324,58 +321,148 @@
       font-size: 1.5rem;
     }
 
-    /* --- SECCIÓN CEO --- */
+    /* --- NUEVA SECCIÓN CEO VISUAL --- */
     .ceo-section {
-      background: white;
+      background: linear-gradient(135deg, #ffffff 0%, #F0F6FF 100%);
       border-radius: 30px;
-      padding: 40px 50px;
-      margin: 40px 0;
-      box-shadow: 0 15px 40px -10px rgba(0,0,0,0.05);
+      padding: 50px;
+      margin: 60px 0;
+      box-shadow: 0 20px 50px -15px rgba(0, 71, 171, 0.1);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 40px;
-      border-left: 8px solid var(--primary);
+      gap: 50px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #E6F0FF;
+    }
+
+    /* Adorno de fondo para darle un toque premium */
+    .ceo-section::before {
+      content: '\f0c0'; /* Icono de usuarios */
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: -30px;
+      top: -20px;
+      font-size: 18rem;
+      color: rgba(0, 71, 171, 0.03);
+      transform: rotate(15deg);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ceo-visual {
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
     }
 
     .ceo-avatar {
-      width: 110px;
-      height: 110px;
-      background: linear-gradient(135deg, #E6F0FF, #CCE0FF);
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
-      color: var(--primary);
-      border: 3px solid white;
-      box-shadow: 0 10px 20px rgba(0, 71, 171, 0.15);
+      font-size: 5rem;
+      color: white;
+      border: 6px solid white;
+      box-shadow: 0 15px 35px rgba(0, 71, 171, 0.3);
+      position: relative;
+    }
+
+    /* Insignia de verificado */
+    .verified-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: var(--dark);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: 4px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .ceo-info {
+      flex: 1;
+      min-width: 300px;
+      z-index: 1;
     }
 
     .ceo-info h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 5px;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .ceo-role {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .ceo-cedula {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #F1F5F9;
-      padding: 6px 14px;
-      border-radius: 8px;
-      color: #475569;
-      font-weight: 600;
-      font-size: 0.85rem;
-      margin-bottom: 15px;
+      background: white;
+      padding: 8px 18px;
+      border-radius: 50px;
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      border: 1px solid #E2E8F0;
+    }
+
+    .ceo-cedula i {
+      color: var(--primary);
+    }
+
+    .ceo-quote-wrapper {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 20px;
+      border-left: 6px solid var(--primary);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .ceo-quote-wrapper i.fa-quote-left {
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      background: var(--primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
     }
 
     .ceo-quote {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-style: italic;
-      color: #556987;
-      max-width: 700px;
+      color: #4A5568;
+      line-height: 1.8;
+      margin: 0;
     }
 
     /* --- CARACTERÍSTICAS --- */
@@ -443,9 +530,8 @@
       box-shadow: 0 20px 40px -10px rgba(10, 25, 47, 0.4);
     }
 
-    /* Adorno de fondo del banner */
     .cta-banner::after {
-      content: '\f0d1'; /* Icono de camión de FontAwesome */
+      content: '\f0d1';
       font-family: 'Font Awesome 6 Free';
       font-weight: 900;
       position: absolute;
@@ -513,14 +599,17 @@
       .hero h1 { font-size: 2.8rem; }
       .hero { padding: 50px 0 40px; }
       .cta-banner { padding: 40px; }
+      .ceo-section { padding: 40px 30px; text-align: center; justify-content: center; }
+      .ceo-visual { margin: 0 auto; }
+      .ceo-quote-wrapper { text-align: left; }
     }
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.2rem; }
       .tracking-card { padding: 30px 20px; }
       .tracking-desc { padding-left: 0; }
-      .ceo-section { padding: 30px; text-align: center; justify-content: center; }
-      .ceo-quote { border: none; padding: 0; margin-top: 15px; }
+      .ceo-avatar { width: 140px; height: 140px; font-size: 4rem; }
+      .ceo-info h2 { font-size: 1.8rem; }
       .cta-banner { padding: 30px; text-align: center; justify-content: center; }
       .btn-wsp-outline { width: 100%; justify-content: center; }
     }
@@ -576,20 +665,27 @@
     </div>
   </section>
 
-  <!-- Sección CEO -->
+  <!-- NUEVA SECCIÓN CEO VISUAL PREMIUM -->
   <div class="container">
     <div class="ceo-section">
-      <div class="ceo-avatar">
-        <i class="fas fa-user-tie"></i>
+      <div class="ceo-visual">
+        <div class="ceo-avatar">
+          <i class="fas fa-user-tie"></i>
+          <div class="verified-badge"><i class="fas fa-check"></i></div>
+        </div>
       </div>
       <div class="ceo-info">
         <h2>Marielvis Andrea Wilches Julio</h2>
+        <div class="ceo-role">Directora Ejecutiva (CEO)</div>
         <div class="ceo-cedula">
           <i class="fas fa-id-badge"></i> C.C. 1101464060
         </div>
-        <p class="ceo-quote">
-          "En EnviaTrack CO nos apasiona conectar a Colombia con sus envíos. Cada paquete cuenta una historia y trabajamos para que llegue a su destino con total transparencia, seguridad y eficiencia."
-        </p>
+        <div class="ceo-quote-wrapper">
+          <i class="fas fa-quote-left"></i>
+          <p class="ceo-quote">
+            "En EnviaTrack CO nos apasiona conectar a Colombia con sus envíos. Cada paquete cuenta una historia y trabajamos para que llegue a su destino con total transparencia, seguridad y eficiencia. Detrás de cada guía hay un compromiso real."
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -642,7 +738,7 @@
       e.preventDefault();
       
       const guia = document.getElementById('guia').value.trim();
-      const telefono = "573103743758"; // Número actualizado
+      const telefono = "573103743758"; 
       
       const mensaje = `Hola, vengo de la página web y necesito rastrear mi paquete. Mi número de guía es: *${guia}*`;
       const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
